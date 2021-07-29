@@ -32,11 +32,11 @@ passport.use('local', new LocalStrategy({
 // luego defino un callback queva a hacer luego de autenticarse, done sirve para guardar
 // desp de autenticarse
      async (req, username, password, done) => {
-      const { fullname } = req.body;
+   
       const newUser ={
           username,
           password,
-          fullname
+          
       };
       
       const result = await pool.query('INSERT INTO users SET ?', [newUser]);

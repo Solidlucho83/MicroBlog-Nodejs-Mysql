@@ -26,7 +26,7 @@ router.get('/singup', isLoggedIn, (req, res) => {
 
 
 router.post('/singup', passport.authenticate('local', {
-    successRedirect: '/profile',
+    successRedirect: '/links',
     failureRedirect: '/',
     failureFlash: true
   }));
