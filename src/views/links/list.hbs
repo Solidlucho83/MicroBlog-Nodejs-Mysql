@@ -1,0 +1,59 @@
+<div class="container p-4">
+     {{#if user}}
+        <div class="row">
+       
+        <div class="col-md-8 mx-auto">
+
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form action="/links/add" method="POST">
+                         {{> message}}
+                        <div class="form-group">
+                            <textarea name="description" rows="4" rows="4" cols="50"  maxlength="366"  class="form-control text-dark"
+                                placeholder="En que estas Pensando?" autofocus></textarea>
+                        </div>
+                   
+                            <button class="btn btn-success btn-block" type="submit">
+                                Guardar
+                            </button>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+{{/if}}
+    </div>
+    <div class="row">
+        {{#each links}}
+        <div class="col-md-8 mx-auto mt-4">
+            <div class="card text-left">
+                <div class="card-body">
+               
+                    <p class="text-left">
+                     <h6 class="card-subtitle mb-2 text-muted"><span class="badge badge-Info">{{timeago created_at}}</span>
+                    </p>    
+                     <p class="text-left">
+                 <h5 class="card-title">{{title}}</h5>
+                    </p>         
+                    <p>{{description}}</p>
+                     <br>
+                     
+                    <a class="btn btn-danger btn-sm float-right"  href="/links/delete/{{id}}">
+                        Borrar
+                    </a>
+                    <a class="btn btn-secondary btn-sm float-left"  href="/links/edit/{{id}}">
+                        Editar
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>No hay Datos</p>
+                <a href="/links/add">Crea Uno!</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
