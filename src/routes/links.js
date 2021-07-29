@@ -11,8 +11,6 @@ const urlencodedParser = express.urlencoded({ extended: false })
 //conecto con el archivo ./database
 const pool = require('../dabatabase');
 
-
-
 router.post('/add', isLoggedIn, urlencodedParser , async (req, res) => {
   const { description } = req.body;
   const newLink = {

@@ -18,8 +18,8 @@ ALTER TABLE users
 
 DESCRIBE users;
 
-INSERT INTO users (id, username, password, fullname) 
-  VALUES (1, 'admin', 'root', 'Administrador');
+INSERT INTO users (id, username, password) 
+  VALUES (1, 'admin', 'root');
 
 SELECT * FROM users;
 
