@@ -48,11 +48,11 @@ router.get('/edit/:id',  isLoggedIn,  async (req, res) => {
 
  router.post('/edit/:id',  isLoggedIn, urlencodedParser ,async (req, res) => {
   const { id } = req.params;
-  const { title, description, url} = req.body; 
+  const { description} = req.body; 
   const newLink = {
-      title,
-      description,
-      url
+      
+      description
+      
   };
   await pool.query('UPDATE links set ? WHERE id = ?', [newLink, id]);
   req.flash('success', 'Link actualizado con exito');
